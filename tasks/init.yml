@@ -24,10 +24,13 @@
   when: systemd_check.stat.exists == true
   notify: 
     - Restart Docker
-  
+
 - name: Docker systemd file
   template: src=docker-service.j2 dest=/lib/systemd/system/docker.service backup=yes
   when: systemd_check.stat.exists == true
   notify: 
     - Restart Docker
 
+- name: Add users to docker group
+  user: name={{ item }} groups=docker append=yes
+  with_items: docker_users

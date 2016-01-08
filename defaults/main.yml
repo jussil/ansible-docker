@@ -1,9 +1,12 @@
 ---
 docker_playbook_version: "0.1.2"
 
+# ie. latest, 1.9.1
+docker_version: latest
 docker_opts: ''
 docker_create_group: true
 docker_service_start_timeout: ''    # use system default value
+docker_users: []
 
 ##### ---
 # Want to advertise the tcp port? Enable below.
